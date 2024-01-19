@@ -1,0 +1,26 @@
+{
+  "name": "jira-snyk-action",
+  "version": "1.0.0",
+  "description": "A reusable github action to automate the creation of bugs in jira by reading the snyk scan reports.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy": "cp jira-automation.py action/",
+    "build": "ncc build index.js -o action && npm run copy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AjayJagan/jira-snyk-gh-action.git"
+  },
+  "author": "Ajay Jaganathan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AjayJagan/jira-snyk-gh-action/issues"
+  },
+  "homepage": "https://github.com/AjayJagan/jira-snyk-gh-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/exec": "^1.1.1",
+    "@vercel/ncc": "^0.38.1"
+  }
+}

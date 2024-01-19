@@ -1,0 +1,43 @@
+---
+name: Create JIRA from Snyk
+description: Reads the Snyk scan reports and creates JIRA bugs.
+inputs:
+  snyk_api_token:
+    description: Snyk api token to provide authentication for the script to read scan reports.
+    required: true
+  snyk_org_id:
+    description: The organization to read the scan reports from.
+    required: true
+  snyk_project_id: 
+    description: The Snyk project to read the scan reports from.
+    required: true
+  jira_api_token:
+    description: Jira api token to provide authentication for the script to create bugs.
+    required: true
+  jira_server:
+    description: The url to jira server.
+    required: true
+  jira_project_id:
+    description: The target project to create the bugs.
+    required: true
+  jira_label_prefix:
+    description: A label prefix for the bugs created.
+    default: "snyk-jira-integration:"
+  jira_component_names:
+    description: A list of comma separated component names to be linked to the bugs created.
+    required: true
+  jira_epic_id:
+    description: The ID of the epic to link the created jiras to.
+    required: true
+  dry_run:
+    description: Test the script using a dry-run.
+    default: "true"
+  exclude_files_path:
+    description: Path to the exclude_files.json
+    required: true
+    default: exclude_files.json
+runs:
+  using: node20
+  main: action/index.js
+  
+  
